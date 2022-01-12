@@ -1,0 +1,25 @@
+body {
+  height: 100vh;
+  width: auto;
+  margin: 0;
+}
+
+.grid {
+  height: 100vh;
+  width: auto;
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.gridSquare {
+  height: 24%;
+  width: 24%;
+  background-color: white;
+
+  border: 1px solid slategrey;
+
+}
