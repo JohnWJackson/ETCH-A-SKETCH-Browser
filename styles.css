@@ -9,17 +9,18 @@ body {
   width: auto;
   background-color: black;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  flex: 1;
+  flex-basis: 33.3333%;
 }
 
 .gridSquare {
-  height: 24%;
-  width: 24%;
+  height: 25%;
+  width: 25%;
   background-color: white;
-
-  border: 1px solid slategrey;
-
 }
+/* .gridSquare:hover {
+  background-color:grey;
+
+} */
