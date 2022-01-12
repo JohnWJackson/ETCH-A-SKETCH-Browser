@@ -4,10 +4,10 @@ body {
   margin: 0;
 }
 
-.grid {
-  height: 100vh;
+#grid {
+  height: 97vh;
   width: auto;
-  background-color: white;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,18 +19,20 @@ body {
   height: 25%;
   width: 25%;
   background-color: navy;
-  opacity: 0%;
-  transition: all 0.5s; 
+  opacity: 10%;
+  transition: all 1; 
 }
 
 .hovered{
   background-color:grey;
   opacity: 100%;
-  transition: all 1s; 
+  transition: all 0.5s; 
 }
 
 #reset {
   width: 100%;
   font-size: 18px;
   font-weight: bold;
+  color: white;
+  background-color: black;;
 }

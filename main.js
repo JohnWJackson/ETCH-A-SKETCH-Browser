@@ -1,34 +1,64 @@
-function makeGrid(x=4, y=4) {
+makeGrid();
+
+function makeGrid(gridSize=32) {
+
+  // Check for an old grid and delete it if there is one
+  const oldGrid = document.getElementById('grid');
+  if (oldGrid != null) {
+    oldGrid.remove();
+  }
+
+  // Create a container for the grid
   const container = document.createElement('div');
-  container.classList.toggle('grid');
+  container.setAttribute('id', 'grid');
   
-  for(i = 0; i < y; i++) {
-    for (j = 0; j < x; j++) {
+  // Size the grid
+  const squareWidth = ((100 / gridSize) - 1) + '%';
+  const squareHeight = (100 / gridSize) + '%';
+
+  // Make the grid
+  for(i = 0; i < gridSize; i++) {
+    for (j = 0; j < gridSize; j++) {
       const div = document.createElement('div');
-      div.classList.toggle('gridSquare');
+      div.classList.add('gridSquare');
+
+      div.style.width = squareWidth;
+      div.style.height = squareHeight;
+  
       container.appendChild(div);
     }
   }
-  
+
+  // Send to HTML
   const parent = document.querySelector('body');
   parent.appendChild(container);
-  
+
+  //Initate Hover
+  onHover();
+
 }
 
-makeGrid();
-
-const squares = document.querySelectorAll('.gridSquare');
-squares.forEach(sq => sq.addEventListener('mouseenter', e => {
-  sq.classList.toggle('hovered');
-  console.log("hovered");
-}));
+function onHover() {
+  const squares = document.querySelectorAll('.gridSquare');
+  squares.forEach(sq => sq.addEventListener('mouseenter', e => {
+    sq.classList.add('hovered');
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    sq.style.cssText += 'background-color:' + '#' + randomColor;
+  }));
+}
 
 const reset = document.querySelector('#reset');
 reset.addEventListener('click', e => {
   const squares = document.querySelectorAll('.gridSquare');
   squares.forEach(sq => sq.classList.remove('hovered'));
-  console.log("reset");
+  let gridSize = -1;
+  while (gridSize < 0 || gridSize > 65) {
+    gridSize = prompt("How many squares per side of grid? (Default is 4)");
+  }
+  makeGrid(gridSize);
 });
+
+
 
 // squares.forEach(sq => sq.addEventListener('mouseleave', e => {
 //   sq.classList.toggle('hovered');
