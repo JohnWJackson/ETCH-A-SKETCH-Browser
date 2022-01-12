@@ -28,3 +28,9 @@ body {
   opacity: 100%;
   transition: all 1s; 
 }
+
+#reset {
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+}

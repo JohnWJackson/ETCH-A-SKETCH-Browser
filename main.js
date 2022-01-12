@@ -17,16 +17,22 @@ function makeGrid(x=4, y=4) {
 
 makeGrid();
 
-
-// ISSUES mouseenter and mouseleave not working properly 
 const squares = document.querySelectorAll('.gridSquare');
 squares.forEach(sq => sq.addEventListener('mouseenter', e => {
   sq.classList.toggle('hovered');
   console.log("hovered");
 }));
-squares.forEach(sq => sq.addEventListener('mouseleave', e => {
-  sq.classList.toggle('hovered');
-  console.log("hovered");
-}));
+
+const reset = document.querySelector('#reset');
+reset.addEventListener('click', e => {
+  const squares = document.querySelectorAll('.gridSquare');
+  squares.forEach(sq => sq.classList.remove('hovered'));
+  console.log("reset");
+});
+
+// squares.forEach(sq => sq.addEventListener('mouseleave', e => {
+//   sq.classList.toggle('hovered');
+//   console.log("hovered");
+// }));
 
 
